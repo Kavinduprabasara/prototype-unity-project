@@ -5,7 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject Player;
-    public Vector3 offset = new Vector3(0, 6, -9);
+    Vector3 offset = new Vector3(0, 3, -6);
+    Vector3 FirstPersonOffset = new Vector3(1, 1, 1);
+    private bool SwitchCameraPosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,8 @@ public class CameraController : MonoBehaviour
 
     // Update is called once per frame
     void LateUpdate()
-    {        
+    {
+        SwitchCameraPosition = Input.GetKey("x");
         //offset the position of the camera 
         transform.position = Player.transform.position + offset;
 
